@@ -52,8 +52,7 @@ _We pioneer solutions to end global homelessness._
 
 # Why Now?
 
-* When else are you going to think about it?
-* Users demand a better experience
+### When else are you going to think about it?
 
 ---
 
