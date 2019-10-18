@@ -1,7 +1,7 @@
 theme: New Story
 build-lists: true
 
-# Offline Strategies
+# Offline First
 
 ## React Native
 
@@ -10,6 +10,8 @@ build-lists: true
 --- 
 
 # Tim Whitacre
+
+### Atlanta
 
 #### Engineering Manager @ New Story Charity
 
@@ -145,22 +147,21 @@ _See a potential problem...?_
 export const SYNC_DOWNLOAD = gql`
   query Download($lastSyncedAt: ISO8601DateTime) {
     posts(lastSyncedAt: $lastSyncedAt) {
-      uuid
+      id
       title
       content
       comments {
-        uuid
+        id
         content
-        user_uuid
       }
     }
     authors(lastSyncedAt: $lastSyncedAt) {
-      uuid
+      id
       first_name
       last_name
     }
     categories(lastSyncedAt: $lastSyncedAt) {
-      uuid
+      id
       title
     }
   }
@@ -320,12 +321,12 @@ class App extends Component {
 const posts = realm.objects('Post');
 posts.forEach(p => console.log(p.title));
 
+// Posts Sorted Alphabetically
+const sortedPosts = posts.sorted('title');
+
 // Specific Query (Comments Are Approved)
 const comments = realm.objects('Comment');
 const posts_comments = comments.filtered('approved = true');
-
-// Posts Sorted Alphabetically
-const sortedPosts = posts.sorted('title');
 
 ```
 
